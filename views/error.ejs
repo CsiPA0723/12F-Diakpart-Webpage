@@ -1,1 +1,11 @@
-<% include('layout.ejs') %>
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <title>A MI weboldalunk</title>
+    </head>
+    <body>
+        <h1><%= message %></h1>
+        <h2><%= error.status %></h2>
+        <pre><%= error.stack %></pre>
+    </body>
+</html>
