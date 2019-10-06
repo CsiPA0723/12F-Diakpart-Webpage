@@ -1,26 +1,58 @@
 <!DOCTYPE html>
 <html lang="hu">
-    <head>
-        <title><%= title %></title>
-        <link rel='stylesheet' type='text/css' media='screen' href='/stylesheets/index.css'/>
-    </head>
-    <body>
-        <div class="header">
-            <h1>A MI weboldalunk</h1>
-            <p>Az oldalt Csizmadia Péter András készítette.</p>
+
+<head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' type='text/css' media='screen' href='/stylesheets/index.css'/>
+    <script src="/javascripts/index.js"></script>
+    <script src='/jquery/jquery-3.4.1.min.js'></script>
+    <script src='/jquery/infinite-scroll.pkgd.min.js'></script>
+</head>
+
+<body>
+    <section class="header">
+        <h1><%= title %></h1>
+    </section>
+    <section class="navbar">
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="post">Posztolj</a>
+        <a id="login" href="login/" class="right">Bejelentkezés</a>
+    </section>
+    <section class="row">
+        <div class="side">
+            <div class="card">
+                <h3>Rólunk:</h4>
+                <p>Pártvezető: <b>Szabó Bence</b></p>
+                <p>Facebook oldalunk: <a href="https://www.facebook.com">Link</a></p>
+                <p>Még</p>
+                <p>több</p>
+                <p>információ</p>
+            </div>
+            <div class="card">
+                <h3>Oldalról:</h3>
+                <p>Az oldalt Csizmadia Péter András készítete.<br>Elérheted itt: <b>peter.andras.csizmadia@gmail.com</b></p>
+            </div>  
         </div>
-        <div class="navbar">
-            <a href="#">Link</a>
-            <a href="#">Link</a>
-            <a href="#">Link</a>
-            <a href="#" class="right">Link</a>
+        <div class="main">
+            <article class="card">
+                <h2>TITLE HEADING</h2>
+                <h5>Title description, Dec 7, 2017</h5>
+                <div class="fakeimg" style="height:200px;">Image</div>
+                <p>Some text..</p>
+                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </article>
+            <article class="card">
+                <h2>TITLE HEADING</h2>
+                <h5>Title description, Sep 2, 2017</h5>
+                <div class="fakeimg" style="height:200px;">Image</div>
+                <p>Some text..</p>
+                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </article>
         </div>
-        <div class="row">
-            <div class="side">...</div>
-            <div class="main">...</div>
-        </div>
-        <div class="footer">
-            <h2>Footer</h2>
-        </div>
-    </body>
+    </section>
+    <button onclick="topFunction()" id="goToTopButton" title="Go to Top">Top</button>
+</body>
+
 </html>

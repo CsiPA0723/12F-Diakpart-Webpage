@@ -1,8 +1,8 @@
 .header {
     padding: 80px;
     text-align: center;
-    background: #ff3300;
-    color: white;
+    background: #FAE09E;
+    color: #000080;
 }
 
 .header h1 {
@@ -11,7 +11,7 @@
 
 .navbar {
     overflow: hidden;
-    background-color: #333;
+    background-color: #000080;
 }
 
 .navbar a {
@@ -28,7 +28,7 @@
 }
 
 .navbar a:hover {
-    background-color: #ddd;
+    background-color: #FAE09E;
     color: black;
 }
 
@@ -42,22 +42,33 @@
 }
 
 .side {
-    flex: 30%;
-    background-color: #f1f1f1;
+    flex: 25%;
+    background-color: #333399;
+    padding: 20px;
+}
+
+.side p {
+    margin-left: 10px;
+}
+
+.card {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+}
+
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
     padding: 20px;
 }
 
 .main {
-    flex: 70%;
-    background-color: white;
+    scroll-behavior: auto;
+    flex: 75%;
+    background-color: lightgray;
     padding: 20px;
 }
-
-.footer {
-    padding: 20px; /* Some padding */
-    text-align: center; /* Center text*/
-    background: #ddd; /* Grey background */
-  }
 
 @media screen and (max-width: 700px) {
     .row {
@@ -73,5 +84,26 @@
 }
 
 body  {
+    background-color: #FAE09E;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+#goToTopButton {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #000080; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
+  
+  #goToTopButton:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
 }
