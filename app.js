@@ -7,14 +7,12 @@ var logger = require('morgan');
 const Database = require('./database');
 
 var indexRouter = require('./routes/index');
-var loginRouter = require('./routes/login');
 var postingRouter = require('./routes/posting');
 
 var app = express();
 
 // Preping databases
 Database.Prepare("posts");
-Database.Prepare("users");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,7 +27,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/login', loginRouter);
 app.use('/post', postingRouter);
 
 // catch 404 and forward to error handler

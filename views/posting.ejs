@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="hu">
     <head>
-        <title><%= title %></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <%- include("defhead") %>
     </head>
     <body>
-        <form>Posting</form>
+        <form method="POST">
+            <label for="title">Cím: </label><input id="title" type="text" name="title" value="Cím">
+            <input type="submit" value="Post">
+        </form>
     </body>
 </html>

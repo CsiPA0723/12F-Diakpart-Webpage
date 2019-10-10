@@ -2,33 +2,34 @@
 <html lang="hu">
 
 <head>
-    <title><%= title %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include("defhead") %>
     <link rel='stylesheet' type='text/css' media='screen' href='/stylesheets/index.css'/>
     <script src="/javascripts/index.js"></script>
-    <script src='/jquery/jquery-3.4.1.min.js'></script>
-    <script src='/jquery/infinite-scroll.pkgd.min.js'></script>
+    <!--- <script src='/jquery/jquery-3.4.1.min.js'></script> --->
+    <!--- <script src='/jquery/infinite-scroll.pkgd.min.js'></script> --->
 </head>
 
 <body>
     <section class="header">
+        <img src="/images/favico.png" alt="12.F logo"><img class="right" src="/images/favico.png" alt="12.F logo">
         <h1><%= title %></h1>
     </section>
     <section class="navbar">
-        <a href="#">Link</a>
-        <a href="#">Link</a>
-        <a href="post">Posztolj</a>
-        <a id="login" href="login/" class="right">Bejelentkezés</a>
+        <a href="https://www.facebook.com">Facebook oldalunk</a>
+        <a href="https://www.instagram.com/12f_diakpart/">Instagramunk</a>
+        <div class="right">
+            <form method="POST">
+                <input type="password" name="pwd" placeholder="Jelszó" style="width: 80pt" required> <input type="submit" value="Irány Posztolni!">
+            </form>
+        </div>
     </section>
     <section class="row">
         <div class="side">
             <div class="card">
                 <h3>Rólunk:</h4>
                 <p>Pártvezető: <b>Szabó Bence</b></p>
-                <p>Facebook oldalunk: <a href="https://www.facebook.com">Link</a></p>
-                <p>Még</p>
-                <p>több</p>
-                <p>információ</p>
+                <p>Szervezeti felépítés</p>
+                <p>Galéria</p>
             </div>
             <div class="card">
                 <h3>Oldalról:</h3>
@@ -36,14 +37,14 @@
             </div>  
         </div>
         <div class="main">
-            <article class="card">
+            <article id="fake0" class="card">
                 <h2>TITLE HEADING</h2>
                 <h5>Title description, Dec 7, 2017</h5>
                 <div class="fakeimg" style="height:200px;">Image</div>
                 <p>Some text..</p>
                 <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
             </article>
-            <article class="card">
+            <article id="fake1" class="card">
                 <h2>TITLE HEADING</h2>
                 <h5>Title description, Sep 2, 2017</h5>
                 <div class="fakeimg" style="height:200px;">Image</div>

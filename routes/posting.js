@@ -1,10 +1,17 @@
 var express = require("express");
+const { check, validationResult } = require('express-validator');
 var router = express.Router();
-/* GET login page. */
+/* GET posting page. */
 router.get("/", function (req, res, next) {
     res.render("posting", {
         title: "Széchenyi Diák Párt"
     });
+});
+
+/* POST posting page. */
+router.post("/", function (req, res, next) {
+    console.log(req.body);
+    res.redirect("/");
 });
 
 module.exports = router;

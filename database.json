@@ -8,19 +8,5 @@
             "name": "data",
             "type": "TEXT"
         }
-    ],
-    "users": [
-        {
-            "name": "id",
-            "type": "INTEGER PRIMARY KEY"
-        },
-        {
-            "name": "email",
-            "type": "TEXT"
-        },
-        {
-            "name": "password",
-            "type": "TEXT"
-        }
     ]
 }
