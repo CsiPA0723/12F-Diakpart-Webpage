@@ -1,6 +1,6 @@
 {
   "name": "our-website",
-  "version": "0.0.1",
+  "version": "0.9.1",
   "private": true,
   "dependencies": {
     "better-sqlite3": "^5.4.3",
