@@ -80,7 +80,7 @@ div.right {
 
 .fakeimg {
     background-color: #aaa;
-    width: 100%;
+    width: 60%;
     padding: 20px;
 }
 
@@ -91,9 +91,25 @@ div.right {
     padding: 20px;
 }
 
+embed {
+    width: 60%;
+}
+
 @media screen and (max-width: 700px) {
     .row {
         flex-direction: column
+    }
+
+    .header img {
+        max-width: 40px;
+    }
+
+    embed {
+        width: 100%;
+    }
+
+    .fakeimg {
+        width: 100%;
     }
 }
 

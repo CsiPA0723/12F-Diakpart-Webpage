@@ -5,7 +5,10 @@
     </head>
     <body>
         <form method="POST">
-            <label for="title">Cím: </label><input id="title" type="text" name="title" value="Cím">
+            <label for="title">Cím: </label><input id="title" type="text" name="title" required><br>
+            <label for="title_desc">Cim leírás: </label><input id="title_desc" type="text" name="title_desc"><br>
+            <label for="post_text">Szöveg: </label><textarea id="post_text" type="text" name="post_text"></textarea><br>
+            <label for="embed_link">Embed link: </label><input id="embed_link" type="text" name="embed_link"><br>
             <input type="submit" value="Post">
         </form>
     </body>

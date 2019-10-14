@@ -3,9 +3,7 @@ const { check, validationResult } = require('express-validator');
 var router = express.Router();
 /* GET posting page. */
 router.get("/", function (req, res, next) {
-    res.render("posting", {
-        title: "Széchenyi Diák Párt"
-    });
+    res.render("posting");
 });
 
 /* POST posting page. */

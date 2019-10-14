@@ -5,7 +5,23 @@
             "type": "INTEGER PRIMARY KEY"
         },
         {
-            "name": "data",
+            "name": "title",
+            "type": "TEXT"
+        },
+        {
+            "name": "title_desc",
+            "type": "TEXT"
+        },
+        {
+            "name": "post_text",
+            "type": "TEXT"
+        },
+        {
+            "name": "embed_link",
+            "type": "TEXT"
+        },
+        {
+            "name": "date",
             "type": "TEXT"
         }
     ]

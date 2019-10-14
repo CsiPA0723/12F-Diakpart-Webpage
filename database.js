@@ -41,18 +41,14 @@ module.exports = {
         return Database.prepare(`delete FROM ${tableName} WHERE id = ? ;`).run(id);
     },
 
-    GetUserTemplate: function(id) {
-        return {
-            id: id,
-            email: "",
-            password: ""
-        };
-    },
-
     GetPostTemplate: function(id) {
         return {
             id: id,
-            data: ""
+            title: '',
+            title_desc: '',
+            post_text: '',
+            embed_linK: '',
+            date: ''
         };
     }
 };
