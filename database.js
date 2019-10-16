@@ -26,14 +26,12 @@ module.exports = {
     
     GetDataFromTable: function(tableName, id) {
         var tableData = Database.prepare(`SELECT * FROM ${tableName} WHERE id = ? ;`).get(id);
-        if(!tableData) tableData = GetCurrencyObjectTemplate(id);
-        SetDataForTable(tableName, tableData);
         return tableData;
     },
     
     SetDataForTable: function(tableName, data) {
-        var names = GetObjectValueFromArray(tableArr, "name");
         var tableArr = DatabaseTableSchema[`${tableName}`];
+        var names = GetObjectValueFromArray(tableArr, "name");
         return Database.prepare(`INSERT OR REPLACE INTO ${tableName} (${names.join(', ')}) VALUES (@${names.join(', @')});`).run(data);
     },
     
@@ -42,14 +40,21 @@ module.exports = {
     },
 
     GetPostTemplate: function(id) {
+        if(!id) id = this.GetLastAvaiableId('posts');
         return {
             id: id,
             title: '',
             title_desc: '',
             post_text: '',
-            embed_linK: '',
+            embed_link: '',
             date: ''
         };
+    },
+
+    GetLastAvaiableId: function(table) {
+        var id = 0;
+        while(this.GetDataFromTable(table, id)) id++;
+        return id;
     }
 };
 

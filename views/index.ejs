@@ -4,9 +4,9 @@
 <head>
     <%- include("defhead") %>
     <link rel='stylesheet' type='text/css' media='screen' href='/stylesheets/index.css'/>
-    <script src="/javascripts/index.js"></script>
-    <!--- <script src='/jquery/jquery-3.4.1.min.js'></script> --->
+    <script src='/jquery/jquery-3.4.1.min.js'></script>
     <!--- <script src='/jquery/infinite-scroll.pkgd.min.js'></script> --->
+    <script src="/javascripts/index.js"></script>
 </head>
 
 <body>
@@ -16,8 +16,9 @@
     </section>
     <section class="navbar">
         <a href="/">Kezdőlap</a>
-        <a href="#rolunk">Rólunk</a>
-        <a href="#szerv_felepites">Szervezeti felépítés</a>
+        <a href="/rolunk">Rólunk</a>
+        <a href="/szerv_felepites">Szervezeti felépítés</a>
+        <a href="#11.D">11.D osztály</a>
         <div class="right">
             <form method="POST">
                 <input type="password" name="pwd" placeholder="Jelszó" style="width: 80pt" required> <input type="submit" value="Irány Posztolni!">
@@ -25,33 +26,7 @@
         </div>
     </section>
     <section class="row">
-        <div class="side">
-            <div class="card">
-                <h3>További oldalaink:</h4>
-                <p>Facebook: <a href="https://www.facebook.com/diakpart/">Link</a></p>
-                <p>Instagram: <a href="https://www.instagram.com/12f_diakpart/">Link</a></p>
-            </div>
-            <div class="card">
-                <h3>Oldalról:</h3>
-                <p>Az oldalt Csizmadia Péter András készítete.<br>Elérheted itt: <b>peter.andras.csizmadia@gmail.com</b></p>
-            </div>  
-        </div>
-        <div class="main">
-            <article id="fake0" class="card">
-                <h2>TITLE HEADING</h2>
-                <h5>Title description, Dec 7, 2017</h5>
-                <div class="fakeimg" style="height:200px;">Image</div>
-                <p>Some text..</p>
-                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-            </article>
-            <article id="fake1" class="card">
-                <h2>TITLE HEADING</h2>
-                <h5>Title description, Sep 2, 2017</h5>
-                <embed src="https://i.imgur.com/iiweJAv.jpg">
-                <p>Some text..</p>
-                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-            </article>
-        </div>
+        <%- include(page) %>
     </section>
     <button onclick="topFunction()" id="goToTopButton" title="Go to Top">Top</button>
 </body>
