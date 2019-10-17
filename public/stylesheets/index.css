@@ -1,15 +1,20 @@
+html {
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
 .header {
     padding-left: 80px;
     padding-right: 80px;
     padding-top: 20px;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
     text-align: center;
     color: #000080;
 }
 
 .header h1 {
-    padding-top: 40px;
-    font-size: 40px;
+    font-size: 60px;
 }
 
 .header img {
@@ -23,6 +28,11 @@
 }
 
 .navbar {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-color: #000080;
+    border-style: solid;
+    border-width: 1px;
     overflow: hidden;
     background-color: #000080;
 }
@@ -58,11 +68,13 @@ div.right {
 }
 
 .row {
+    border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .side {
+    border-radius: 5px;
     flex: 25%;
     background-color: #333399;
     padding: 20px;
@@ -73,8 +85,11 @@ div.right {
 }
 
 .card {
+    border-radius: 5px;
     margin-top: 20px;
-    padding: 20px;
+    padding-top: 2px;
+    padding-left: 20px;
+    padding-bottom: 20px;
     background-color: white;
 }
 
@@ -85,7 +100,7 @@ div.right {
 }
 
 #main {
-    scroll-behavior: auto;
+    border-radius: 5px;
     flex: 75%;
     background-color: lightgray;
     padding: 20px;
@@ -100,8 +115,20 @@ embed {
         flex-direction: column
     }
 
+    .header {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 30px;
+    }
+
+    .header h1 {
+        padding-top: 10px;
+        font-size: 18px;
+    }
+
     .header img {
-        max-width: 40px;
+        max-width: 60px;
     }
 
     embed {

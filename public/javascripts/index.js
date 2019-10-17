@@ -30,7 +30,7 @@ $(function() {
 
         var main = document.getElementById("main");
         main.innerHTML = "";
-        var postsToBeLoaded = loadedPosts - 3;
+        var postsToBeLoaded = loadedPosts - 4;
         for(let i = loadedPosts; i > postsToBeLoaded; i--) {
             LoadPost(i);
             sleep(10);

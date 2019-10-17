@@ -5,30 +5,33 @@
     <%- include("defhead") %>
     <link rel='stylesheet' type='text/css' media='screen' href='/stylesheets/index.css'/>
     <script src='/jquery/jquery-3.4.1.min.js'></script>
-    <!--- <script src='/jquery/infinite-scroll.pkgd.min.js'></script> --->
+    <!-- <script src='/jquery/infinite-scroll.pkgd.min.js'></script> -->
     <script src="/javascripts/index.js"></script>
 </head>
 
 <body>
-    <section class="header">
+    <section class="header" id="header">
         <img src="/images/favico.png" alt="12.F logo"><img class="right" src="/images/favico.png" alt="12.F logo">
         <h1><%= title %></h1>
     </section>
     <section class="navbar">
         <a href="/">Kezdőlap</a>
-        <a href="/rolunk">Rólunk</a>
         <a href="/szerv_felepites">Szervezeti felépítés</a>
-        <a href="#11.D">11.D osztály</a>
-        <div class="right">
+        <a href="https://www.instagram.com/imca_es_a_11d">11.D osztály</a>
+        <a class="right" data-toggle="modal" data-target="#myModal">Posztolj!</a>
+        <!--<div class="right">
+            <button onclick="" id="posting" title="Posting">Posztolj!</button>
             <form method="POST">
                 <input type="password" name="pwd" placeholder="Jelszó" style="width: 80pt" required> <input type="submit" value="Irány Posztolni!">
             </form>
-        </div>
+        </div>-->
     </section>
     <section class="row">
         <%- include(page) %>
     </section>
-    <button onclick="topFunction()" id="goToTopButton" title="Go to Top">Top</button>
+    <button onclick="topFunction()" id="goToTopButton" title="Go to Top">∧</button>
+    <section id="myModal" class="modal fade" role="dialog">
+    </section>
 </body>
 
 </html>

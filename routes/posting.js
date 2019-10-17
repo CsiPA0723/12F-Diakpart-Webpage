@@ -12,14 +12,14 @@ router.get("/", function (req, res, next) {
 
 /* POST posting page. */
 router.post("/", function (req, res, next) {
-    console.log(req.body);
+    //console.log(req.body);
     var post = database.GetPostTemplate();
     post.title = req.body.title;
     post.title_desc = req.body.title_desc;
     post.post_text = req.body.post_text;
     post.embed_link = req.body.embed_link;
     post.date = Functions.DateFormat(Date.now());
-    console.log(post);
+    //console.log(post);
     database.SetDataForTable('posts', post);
     res.redirect("/");
 });

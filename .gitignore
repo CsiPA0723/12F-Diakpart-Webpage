@@ -5,3 +5,4 @@ logs/
 node_modules/
 database/database.sqlite-*
 run.*
+config.json

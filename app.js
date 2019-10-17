@@ -6,6 +6,8 @@ var logger = require('morgan');
 
 const Database = require('./database');
 
+const config = require('./config.json');
+
 var indexRouter = require('./routes/index');
 var postingRouter = require('./routes/posting');
 
@@ -18,7 +20,8 @@ Database.Prepare("posts");
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(logger('dev'));
+if(config.mode == "dev") app.use(logger('dev'));
+else if(config.mode == "product") app.use(logger('combined'));
 app.use(express.json());
 app.use(express.urlencoded({
     extended: false

@@ -37,10 +37,10 @@ router.get("/getlastpost", function (req, res, next) {
 router.post("/", function (req, res, next) {
     if(req.body.pwd) {
         if(req.body.pwd == config.pwd) {
-            console.log("req.body: ", req.body);
+            //console.log("req.body: ", req.body);
             res.redirect("/posting");
         } else {
-            console.log("Wrong pwd!");
+            //console.log("Wrong pwd!");
             res.render("index", {
                 title: "Széchenyi Diák Párt"
             });
@@ -49,10 +49,10 @@ router.post("/", function (req, res, next) {
 });
 
 router.post("/post", function (req, res, next) {
-    console.log(req.body);
-    console.log(req.get('content-type'));
+    //console.log(req.body);
+    //console.log(req.get('content-type'));
     var data = database.GetDataFromTable('posts', req.body.id);
-    console.log(data);
+    //console.log(data);
     if(data) res.json(data);
     else res.json({id: -1});
 });
