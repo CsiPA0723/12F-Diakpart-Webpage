@@ -42,15 +42,7 @@ router.post("/post", function (req, res, next) {
     console.log(req.get('content-type'));
     var data = database.GetDataFromTable('posts', req.body.id);
     console.log(data);
-    var string = `
-        <article id="post_${data.id}" class="card">
-            <h2>${data.title}</h2>
-            <h5>${data.title_desc}${data.title_desc ? ", " : ""}${data.date}</h5>
-            <p>${data.post_text.replace(/\r\n/g, "<br>")}</p>
-            <button onclick="openEditingForm(${data.id})">Szerkeztés</button>
-            <button onclick="openDeletingForm(${data.id})">Törlés</button>
-        </article>`;
-    if(data) res.json({id: data.id, html: string});
+    if(data) res.json(data);
     else res.json({id: -1});
 });
 

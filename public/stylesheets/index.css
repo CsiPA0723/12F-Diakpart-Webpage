@@ -62,7 +62,6 @@ html {
 .row {
     border-radius: 5px;
     display: flex;
-    flex-wrap: wrap;
 }
 
 .side {
@@ -198,10 +197,6 @@ input[type=text]#title_desc {
 
     embed {
         width: 100%;
-    }
-
-    .szerv_fel img {
-        max-width: 100%;
     }
 
     .fakeimg {
