@@ -8,10 +8,6 @@ const postUrl = "http://szechenyidiakpart.ddns.net:8080/post";
 //const postUrl = "http://lvh.me:8080/post";
 //const postUrl = "http://127.0.0.1:8080/post";
 
-const youtubeRegExp = /(?:https?:\/\/)?(?:(?:(?:www\.?)?youtube\.com(?:\/(?:(?:watch\?.*?(v=[^&\s]+).*)|(?:v(\/.*))|(channel\/.+)|(?:user\/(.+))|(?:results\?(search_query=.+))))?)|(?:youtu\.be(\/.*)?))/g;
-
-//const imgurRegExp = /(?:https?:\/\/)?(?:(?:(?:www\.?)?youtube\.com(?:\/(?:(?:watch\?.*?(v=[^&\s]+).*)|(?:v(\/.*))|(channel\/.+)|(?:user\/(.+))|(?:results\?(search_query=.+))))?)|(?:youtu\.be(\/.*)?))/g;
-
 var loadedPostIndex = 0;
 var loadedLastPost = false;
 var finishedInit = false;
@@ -46,6 +42,7 @@ $(function() {
         var main = document.getElementById("main");
         main.innerHTML = "";
         var postsToBeLoaded = data.ids.length - 3 - 1;
+        if(postsToBeLoaded < 0) postsToBeLoaded = -1;
         for (let i = data.ids.length - 1; i > postsToBeLoaded; i--) {
             LoadPost(data.ids[i]);
             sleep(30);
@@ -109,15 +106,7 @@ function LoadPost(id) {
         }
         console.log("post: ", data);
         var main = document.getElementById("main");
-        main.innerHTML += `
-            <article id="post_${data.id}" class="card">
-                <h2>${data.title}</h2>
-                <h5>${data.title_desc}, ${data.date}</h5>
-                <p>${data.post_text.replace(/\r\n/g, "<br>")}</p>
-                <button onclick="openEditingForm(${data.id})">Szerkeztés</button>
-                <button onclick="openDeletingForm(${data.id})">Törlés</button>
-            </article>
-        `;
+        main.innerHTML += data.html;
         if(finishedInit) loadedPostIndex--;
         if(loadedPostIndex < 0) loadedLastPost = true;
         finishedLoadingPost = true;

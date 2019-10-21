@@ -36,8 +36,8 @@ module.exports = {
     SetDataForTable: function(tableName, data) {
         var tableArr = DatabaseTableSchema[`${tableName}`];
         var names = GetObjectValueFromArray(tableArr, "name");
-        if(data && data.id && !this.GetDataFromTable(tableName, data.id)) {
-            postIds.push(data.id);
+        if(data && data.id && !postIds.includes(parseInt(id))) {
+            postIds.push(parseInt(data.id));
             fs.writeFileSync("./database/ids.json", JSON.stringify(postIds, null, 4), err => { if(err) throw err; });
         }
         return Database.prepare(`INSERT OR REPLACE INTO ${tableName} (${names.join(', ')}) VALUES (@${names.join(', @')});`).run(data);

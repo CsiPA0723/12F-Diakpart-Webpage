@@ -10,6 +10,12 @@ const Functions = require('../funtions.js');
 const database = require('../database.js');
 const config = require('../config.json');
 
+const youtubeRegExp = /(?:https?:\/\/)?(?:(?:(?:www\.?)?youtube\.com(?:\/(?:(?:watch\?.*?(v=[^&\s]+).*)|(?:v(\/.*))|(channel\/.+)|(?:user\/(.+))|(?:results\?(search_query=.+))))?)|(?:youtu\.be(\/.*)?))/g;
+
+//const imgurRegExp = /(?:https?:\/\/)?(?:(?:(?:www\.?)?youtube\.com(?:\/(?:(?:watch\?.*?(v=[^&\s]+).*)|(?:v(\/.*))|(channel\/.+)|(?:user\/(.+))|(?:results\?(search_query=.+))))?)|(?:youtu\.be(\/.*)?))/g;
+
+//const facebookRegExp = /(?:https?:\/\/)?(?:(?:(?:www\.?)?youtube\.com(?:\/(?:(?:watch\?.*?(v=[^&\s]+).*)|(?:v(\/.*))|(channel\/.+)|(?:user\/(.+))|(?:results\?(search_query=.+))))?)|(?:youtu\.be(\/.*)?))/g;
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
     res.render("index", {
@@ -36,7 +42,15 @@ router.post("/post", function (req, res, next) {
     console.log(req.get('content-type'));
     var data = database.GetDataFromTable('posts', req.body.id);
     console.log(data);
-    if(data) res.json(data);
+    var string = `
+        <article id="post_${data.id}" class="card">
+            <h2>${data.title}</h2>
+            <h5>${data.title_desc}${data.title_desc ? ", " : ""}${data.date}</h5>
+            <p>${data.post_text.replace(/\r\n/g, "<br>")}</p>
+            <button onclick="openEditingForm(${data.id})">Szerkeztés</button>
+            <button onclick="openDeletingForm(${data.id})">Törlés</button>
+        </article>`;
+    if(data) res.json({id: data.id, html: string});
     else res.json({id: -1});
 });
 
