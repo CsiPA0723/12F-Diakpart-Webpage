@@ -1,12 +1,12 @@
 window.onscroll = function() { scrollFunction(); };
 
-const getPostIds = "http://szechenyidiakpart.ddns.net:8080/getpostids";
-//const getPostIds = "http://lvh.me:8080/getpostids";
-//const getPostIds = "http://127.0.0.1:8080/getpostids";
+const getPostIds = "http://szechenyidiakpart.ddns.net/getpostids";
+//const getPostIds = "http://lvh.me/getpostids";
+//const getPostIds = "http://127.0.0.1/getpostids";
 
-const postUrl = "http://szechenyidiakpart.ddns.net:8080/post";
-//const postUrl = "http://lvh.me:8080/post";
-//const postUrl = "http://127.0.0.1:8080/post";
+const postUrl = "http://szechenyidiakpart.ddns.net/post";
+//const postUrl = "http://lvh.me/post";
+//const postUrl = "http://127.0.0.1/post";
 
 var loadedPostIndex = 0;
 var loadedLastPost = false;
