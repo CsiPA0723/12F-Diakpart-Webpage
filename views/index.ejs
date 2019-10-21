@@ -4,6 +4,7 @@
 <head>
     <%- include("defhead") %>
     <link rel='stylesheet' type='text/css' media='screen' href='/stylesheets/index.css'/>
+    <link rel='stylesheet' type='text/css' media='screen' href='/stylesheets/szerv_felept.css'/>
     <script src='/jquery/jquery-3.4.1.min.js'></script>
     <!-- <script src='/jquery/infinite-scroll.pkgd.min.js'></script> -->
     <script src="/javascripts/index.js"></script>
@@ -18,19 +19,45 @@
         <a href="/">Kezdőlap</a>
         <a href="/szerv_felepites">Szervezeti felépítés</a>
         <a href="https://www.instagram.com/imca_es_a_11d">11.D osztály</a>
-        <a class="right" data-toggle="modal" data-target="#myModal">Posztolj!</a>
-        <!--<div class="right">
-            <button onclick="" id="posting" title="Posting">Posztolj!</button>
-            <form method="POST">
-                <input type="password" name="pwd" placeholder="Jelszó" style="width: 80pt" required> <input type="submit" value="Irány Posztolni!">
-            </form>
-        </div>-->
+        <a class="right" onclick="openPostingForm();">Posztolj!</a>
     </section>
-    <section class="row">
-        <%- include(page) %>
-    </section>
+    <%- include(page) %>
     <button onclick="topFunction()" id="goToTopButton" title="Go to Top">∧</button>
-    <section id="myModal" class="modal fade" role="dialog">
+    <section id="postingForm" class="form-popup">
+        <form action="/posting" method="POST" class="form-container">
+            <h1>Posztolás:</h1>
+            <label for="title">Cím: </label><input id="pf_title" type="text" name="title" required><br>
+            <label for="title_desc">Cím leírás: </label><input id="pf_title_desc" type="text" name="title_desc"><br>
+            <label for="post_text">Szöveg: </label><textarea id="pf_post_text" type="text" name="post_text"></textarea><br>
+            <div class="button-container">
+                <input type="password" name="pwd" id="pf_pwd" placeholder="Jelszó" required> <button type="submit" class="btn">Poszt</button>
+                <button type="submit" class="btn cancel" onclick="closePostingForm();" formnovalidate>Kilép</button>
+            </div>
+        </form>
+    </section>
+    <section id="editingForm" class="form-popup">
+        <form action="/editing" method="POST" class="form-container">
+            <h1>Szerkesztés:</h1>
+            <input id="ef_id" type="number" name="id" hidden required>
+            <label for="title">Cím: </label><input id="ef_title" type="text" name="title" required><br>
+            <label for="title_desc">Cím leírás: </label><input id="ef_title_desc" type="text" name="title_desc"><br>
+            <label for="post_text">Szöveg: </label><textarea id="ef_post_text" type="text" name="post_text"></textarea><br>
+            <div class="button-container">
+                <input type="password" name="pwd" id="ef_pwd" placeholder="Jelszó" required> <button type="submit" class="btn">Szerkeszt</button>
+                <button type="submit" class="btn cancel" onclick="closePostingForm();" formnovalidate>Kilép</button>
+            </div>
+        </form>
+    </section>
+    <section id="deletingForm" class="form-popup">
+        <form action="/deleting" method="POST" class="form-container">
+            <h1>Törlés:</h1>
+            <input id="del_id" type="number" name="id" hidden required>
+            <p>Biztosan törölni akarod ezt a posztot?</p>
+            <div class="button-container">
+                <input type="password" name="pwd" id="del_pwd" placeholder="Jelszó" required> <button type="submit" class="btn">Igen</button>
+                <button type="submit" class="btn cancel" onclick="closePostingForm();" formnovalidate>Nem</button>
+            </div>
+        </form>
     </section>
 </body>
 

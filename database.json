@@ -17,10 +17,6 @@
             "type": "TEXT"
         },
         {
-            "name": "embed_link",
-            "type": "TEXT"
-        },
-        {
             "name": "date",
             "type": "TEXT"
         }

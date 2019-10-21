@@ -9,7 +9,6 @@ const Database = require('./database');
 const config = require('./config.json');
 
 var indexRouter = require('./routes/index');
-var postingRouter = require('./routes/posting');
 
 var app = express();
 
@@ -30,7 +29,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/posting', postingRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

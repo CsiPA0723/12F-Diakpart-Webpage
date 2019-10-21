@@ -1,0 +1,43 @@
+.szerv_fel {
+    display: block;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+div.gallery {
+    border: 1px solid #555;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: white;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #555;
+    border-radius: 10%;
+    padding: 5px;
+}
+
+div.desc {
+    padding: 10px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}

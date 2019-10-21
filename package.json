@@ -29,5 +29,8 @@
   },
   "author": "CsiPA",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/CsiPA0723/our-website#readme"
+  "homepage": "https://bitbucket.org/CsiPA0723/our-website#readme",
+  "nodemonConfig": {
+    "ignore": ["database/*", "*.json"]
+  }
 }
