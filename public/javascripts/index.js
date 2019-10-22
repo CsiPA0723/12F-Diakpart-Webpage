@@ -14,8 +14,8 @@ var finishedInit = false;
 var finishedLoadingPost = false;
 var ids = GetPostIds();
 
-var mode = 'dev';
-if(mode == 'dev') {
+var origin = window.location.origin;
+if(origin.includes("lvh.me")) {
     getPostIds = getPostIdsDev;
     postUrl = postUrlDev;
 }
