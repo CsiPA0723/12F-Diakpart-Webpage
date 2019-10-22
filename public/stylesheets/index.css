@@ -125,6 +125,7 @@ embed {
     top: 5%;
     right: 25%;
     left: 25%;
+    height: fit-content;
     border: 3px solid #555;
     z-index: 9;
     background-color: white;
@@ -169,7 +170,7 @@ input[type=text]#title_desc {
   
 /* Set a style for the submit/login button */
 .form-container .button-container .btn {
-    width: 80px;
+    width: fit-content;
     background-color: #000080;
     color: white;
     padding: 16px 20px;
@@ -219,6 +220,7 @@ input[type=text]#title_desc {
     }
 
     .form-popup {
+        height: 100%;
         bottom: 0;
         top: 0;
         right: 0;
@@ -227,11 +229,6 @@ input[type=text]#title_desc {
 
     .form-container h1 {
         font-size: 18px;
-    }
-      
-    .form-container textarea {
-        height: 100%;
-        max-height: 100%;
     }
 
     .form-container input[type=text], .form-container input[type=password] {
@@ -251,6 +248,18 @@ input[type=text]#title_desc {
     .navbar a {
         float: none;
         width: 100%;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .form-container textarea {
+        height: 30vmax;
+    }
+}
+
+@media screen and (max-height: 400px) {
+    .form-container textarea {
+        height: 15vmax;
     }
 }
 
