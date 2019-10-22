@@ -6,10 +6,8 @@ html {
 }
 
 .header {
-    padding-left: 80px;
-    padding-right: 80px;
-    padding-top: 20px;
-    padding-bottom: 40px;
+    /* top | horizontal | bottom */
+    padding: 20px 80px 40px;
     text-align: center;
     color: #000080;
 }
@@ -31,9 +29,7 @@ html {
 .navbar {
     margin-bottom: 10px;
     border-radius: 5px;
-    border-color: #000080;
-    border-style: solid;
-    border-width: 1px;
+    border: 1px solid #000080;
     overflow: hidden;
     background-color: #000080;
 }
@@ -54,6 +50,7 @@ html {
 .navbar a:hover {
     background-color: #FAE09E;
     color: black;
+    cursor: pointer;
 }
 
 * {
@@ -88,10 +85,8 @@ html {
 .card {
     border-radius: 5px;
     margin-top: 20px;
-    padding-top: 2px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    /* top | right | bottom | left */
+    padding: 2px 20px 20px 20px;
     background-color: white;
 }
 
@@ -100,21 +95,62 @@ html {
     padding-left: 20px;
 }
 
-.fakeimg {
-    background-color: #aaa;
-    width: 60%;
-    padding: 20px;
-}
-
 #main {
     border-radius: 5px;
     flex: 75%;
-    background-color: lightgray;
+    /*background-color: #B1A179;*/
+    background-color: #D1AF61;
     padding: 20px;
 }
 
 embed {
     width: 60%;
+}
+
+article {
+    border-radius: 5px;
+    margin-top: 20px;
+    /* top | right | bottom | left */
+    padding: 2px 20px 20px 20px;
+    background-color: white;
+    border: 2px solid #000080;
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 6px 6px 2px 1px #000080;
+}
+
+article div.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+article input[type=button] {
+    box-shadow: 2px 1px 2px 1px #000040;
+    margin-left: 4px;
+    width: fit-content;
+    background-color: #000080;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+article input[type=button]:focus {
+    background: #FAE09E;
+    border: 1px, solid, #000080;
+    color: black;
+}
+
+article input[type=button]:hover {
+    opacity: 1;
+}
+
+hr {
+    border: none;
+    border-radius: 3px;
+    background-color: #000080;
+    height: 4px;
 }
 
 /* The popup form - hidden by default */
@@ -150,6 +186,7 @@ embed {
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
+    border-radius: 5px;
     background: #f1f1f1;
 }
 
@@ -175,6 +212,7 @@ input[type=text]#title_desc {
     color: white;
     padding: 16px 20px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     margin-bottom:10px;
     opacity: 0.8;
@@ -190,16 +228,34 @@ input[type=text]#title_desc {
     opacity: 1;
 }
 
-@media screen and (max-width: 700px) {
+#goToTopButton {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: 2px solid white; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #000080; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 10px 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
+  
+#goToTopButton:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}
+
+@media screen and (max-width: 900px) {
     .row {
         flex-direction: column
     }
 
     .header {
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-top: 10px;
-        padding-bottom: 30px;
+        /* top | horizontal | bottom */
+        padding: 10px 20px 30px;
     }
 
     .header h1 {
@@ -211,11 +267,11 @@ input[type=text]#title_desc {
         max-width: 60px;
     }
 
-    embed {
-        width: 100%;
+    .side img {
+        width: 5%;
     }
 
-    .fakeimg {
+    embed {
         width: 100%;
     }
 
@@ -242,12 +298,24 @@ input[type=text]#title_desc {
     .form-container .button-container {
         float: right;
     }
+
+    #goToTopButton {
+        padding: 6px 11px;
+    }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 540px) {
+    .side img {
+        width: 10%;
+    }
+
     .navbar a {
         float: none;
         width: 100%;
+    }
+
+    #goToTopButton {
+        padding: 4px 9px;
     }
 }
 
@@ -261,24 +329,4 @@ input[type=text]#title_desc {
     .form-container textarea {
         height: 15vmax;
     }
-}
-
-#goToTopButton {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: #000080; /* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 10px; /* Rounded corners */
-    font-size: 18px; /* Increase font size */
-}
-  
-#goToTopButton:hover {
-    background-color: #555; /* Add a dark-grey background on hover */
 }

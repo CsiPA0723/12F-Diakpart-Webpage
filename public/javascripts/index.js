@@ -8,17 +8,17 @@ var postUrl = "http://szechenyidiakpart.ddns.net/post";
 var postUrlDev = "http://lvh.me/post";
 //var postUrl = "http://127.0.0.1/post";
 
-var loadedPostIndex = 0;
-var loadedLastPost = false;
-var finishedInit = false;
-var finishedLoadingPost = false;
-var ids = GetPostIds();
-
 var origin = window.location.origin;
 if(origin.includes("lvh.me")) {
     getPostIds = getPostIdsDev;
     postUrl = postUrlDev;
 }
+
+var loadedPostIndex = 0;
+var loadedLastPost = false;
+var finishedInit = false;
+var finishedLoadingPost = false;
+var ids = GetPostIds();
 
 $(function() {
     if(document.URL.endsWith("szerv_felepites")) {
@@ -113,12 +113,15 @@ function LoadPost(id) {
         console.log("post: ", data);
         var main = document.getElementById("main");
         main.innerHTML += `
-            <article id="post_${data.id}" class="card">
+            <article id="post_${data.id}">
                 <h2>${data.title}</h2>
                 <h5>${data.title_desc ? data.title_desc + ", " : ""}${data.date}</h5>
+                <hr>
                 <p>${data.post_text.replace(/(\r\n)|(\n)/g, "<br>")}</p>
-                <button onclick="openEditingForm(${data.id})">Szerkeztés</button>
-                <button onclick="openDeletingForm(${data.id})">Törlés</button>
+                <div class="buttons">
+                    <input type="button" onclick="openEditingForm(${data.id});" value="Szerkeztés">
+                    <input type="button" onclick="openDeletingForm(${data.id});" value="Törlés">
+                </div>
             </article>`;
         if(finishedInit) loadedPostIndex--;
         if(loadedPostIndex < 0) loadedLastPost = true;
