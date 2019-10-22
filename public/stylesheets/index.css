@@ -77,6 +77,14 @@ html {
     margin-left: 10px;
 }
 
+.side img, h3 {
+    vertical-align: middle;
+}
+
+.side img {
+    width: 10%;
+}
+
 .card {
     border-radius: 5px;
     margin-top: 20px;
@@ -85,6 +93,11 @@ html {
     padding-right: 20px;
     padding-bottom: 20px;
     background-color: white;
+}
+
+.card.icons {
+    padding: 5px;
+    padding-left: 20px;
 }
 
 .fakeimg {
