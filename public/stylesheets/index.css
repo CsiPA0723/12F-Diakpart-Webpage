@@ -1,4 +1,5 @@
 html {
+    width: 100%;
     max-width: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -62,6 +63,7 @@ html {
 .row {
     border-radius: 5px;
     display: flex;
+    overflow-wrap: break-word;
 }
 
 .side {
