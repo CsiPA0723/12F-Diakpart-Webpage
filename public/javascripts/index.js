@@ -1,18 +1,24 @@
 window.onscroll = function() { scrollFunction(); };
 
-//const getPostIds = "http://szechenyidiakpart.ddns.net/getpostids";
-const getPostIds = "http://lvh.me/getpostids";
-//const getPostIds = "http://127.0.0.1/getpostids";
+var getPostIds = "http://szechenyidiakpart.ddns.net/getpostids";
+var getPostIdsDev = "http://lvh.me/getpostids";
+//var getPostIds = "http://127.0.0.1/getpostids";
 
-//const postUrl = "http://szechenyidiakpart.ddns.net/post";
-const postUrl = "http://lvh.me/post";
-//const postUrl = "http://127.0.0.1/post";
+var postUrl = "http://szechenyidiakpart.ddns.net/post";
+var postUrlDev = "http://lvh.me/post";
+//var postUrl = "http://127.0.0.1/post";
 
 var loadedPostIndex = 0;
 var loadedLastPost = false;
 var finishedInit = false;
 var finishedLoadingPost = false;
 var ids = GetPostIds();
+
+var mode = 'dev';
+if(mode == 'dev') {
+    getPostIds = getPostIdsDev;
+    postUrl = postUrlDev;
+}
 
 $(function() {
     if(document.URL.endsWith("szerv_felepites")) {
