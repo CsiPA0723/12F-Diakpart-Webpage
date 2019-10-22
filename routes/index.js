@@ -31,6 +31,10 @@ router.get("/szerv_felepites", function (req, res, next) {
     });
 });
 
+router.get("/mode", function (req, res, next) {
+    res.json({mode: config.mode});
+});
+
 router.get("/getpostids", function (req, res, next) {
     delete postIds;
     postIds = require('../database/ids.json');

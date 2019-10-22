@@ -36,7 +36,7 @@ module.exports = {
     SetDataForTable: function(tableName, data) {
         var tableArr = DatabaseTableSchema[`${tableName}`];
         var names = GetObjectValueFromArray(tableArr, "name");
-        if(data && data.id && !postIds.includes(parseInt(id))) {
+        if(data && data.id && !postIds.includes(parseInt(data.id))) {
             postIds.push(parseInt(data.id));
             fs.writeFileSync("./database/ids.json", JSON.stringify(postIds, null, 4), err => { if(err) throw err; });
         }
