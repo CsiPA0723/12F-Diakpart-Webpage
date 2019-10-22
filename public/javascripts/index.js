@@ -110,7 +110,7 @@ function LoadPost(id) {
             <article id="post_${data.id}" class="card">
                 <h2>${data.title}</h2>
                 <h5>${data.title_desc ? data.title_desc + ", " : ""}${data.date}</h5>
-                <p>${data.post_text.replace(/\r\n/g, "<br>")}</p>
+                <p>${data.post_text.replace(/(\r\n)|(\n)/g, "<br>")}</p>
                 <button onclick="openEditingForm(${data.id})">Szerkeztés</button>
                 <button onclick="openDeletingForm(${data.id})">Törlés</button>
             </article>`;
