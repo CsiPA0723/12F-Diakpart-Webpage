@@ -31,6 +31,9 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/CsiPA0723/our-website#readme",
   "nodemonConfig": {
-    "ignore": ["database/*", "*.json"]
+    "ignore": [
+      "database/*",
+      "*.json"
+    ]
   }
 }
