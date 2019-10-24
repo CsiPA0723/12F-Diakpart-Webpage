@@ -103,8 +103,9 @@ html {
     padding: 20px;
 }
 
-embed {
-    width: 60%;
+iframe, embed {
+    width: 560px;
+    height: 315px;
 }
 
 article {
@@ -248,6 +249,13 @@ input[type=text]#title_desc {
     background-color: #555; /* Add a dark-grey background on hover */
 }
 
+@media screen and (max-width: 1024px) {
+    iframe {
+        width: 100%;
+        height: 280px;
+    }
+}
+
 @media screen and (max-width: 900px) {
     .row {
         flex-direction: column
@@ -273,6 +281,10 @@ input[type=text]#title_desc {
 
     embed {
         width: 100%;
+    }
+
+    iframe, embed{
+        height: 180;
     }
 
     .form-popup {
@@ -316,6 +328,9 @@ input[type=text]#title_desc {
 
     #goToTopButton {
         padding: 4px 9px;
+    }
+    iframe, embed{
+        height: 100;
     }
 }
 

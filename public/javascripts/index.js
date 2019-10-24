@@ -14,6 +14,14 @@ if(origin.includes("lvh.me")) {
     postUrl = postUrlDev;
 }
 
+const URLReqExp = /([--:\w?@%&+~#=]*\.[a-z]{2,4}\/{0,2})((?:[?&](?:\w+)=(?:\w+))+|[--:\w?@%&+~#=]+)?/g;
+
+const youtubeRegExp = /(?:https?:\/\/)?(?:(?:(?:www\.?)?youtube\.com(?:\/(?:(?:watch\?.*?(v=[-_A-Za-z0-9]+))))?)|(?:youtu\.be(\/.*)?))/g;
+
+const imgurPostRegExp = /(http|https)+(:\/\/)*(i\.imgur\.com\/)+(([a-z]|\d){7})+(\.)+(PNG|JPG|GIFV|GIF|APNG|TIFF|XCF|MOV|MP4)/ig;
+
+const facebookRegExp = /http(?:s)?:\/\/(?:www\.|web\.|m\.)?facebook.com\/([\w\d]+)\/videos(?:\/[\w\d\.]+)?\/(\d+)(?:\/\?type=[\d]&theater)?(\/)?/g;
+
 var loadedPostIndex = 0;
 var loadedLastPost = false;
 var finishedInit = false;
@@ -111,13 +119,38 @@ function LoadPost(id) {
             return;
         }
         console.log("post: ", data);
+        var videos = "<br>";
+        data.post_text = data.post_text.replace(/(\r\n)|(\n)/g, "<br>");
+        data.post_text = data.post_text.replace(facebookRegExp, (match, p1, p2, offset, string) => {
+            link = `<a href="${match}">${match}</a>`;
+            var iframe = `<br><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F${p1}%2Fvideos%2F${p2}%2F&show_text=0" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>`;
+            videos += iframe;
+            return link;
+        });
+        data.post_text = data.post_text.replace(youtubeRegExp, (match, p1, p2, offset, string) => {
+            link = `<a href="${match}">${match}</a>`;
+            var iframe =`<br><iframe src="https://www.youtube.com/embed/${p1.slice(2)}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            videos += iframe;
+            return link;
+        });
+
+        data.post_text = data.post_text.replace(imgurPostRegExp, (match, p1, p2, offset, string) => {
+            var link = `<a href="${match}">${match}</a>`;
+            var iframe =`<br><embed src="${match}" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>`;
+            videos += iframe;
+            return link;
+        });
+
+        data.post_text = data.post_text.replace(URLReqExp, "<a href='$&'>$&</a>");
+        console.log("LINKED TEXT:\n", data.post_text);        
+        console.log("VIDEOS TEXT:\n", videos);        
         var main = document.getElementById("main");
         main.innerHTML += `
             <article id="post_${data.id}">
                 <h2>${data.title}</h2>
                 <h5>${data.title_desc ? data.title_desc + ", " : ""}${data.date}</h5>
                 <hr>
-                <p>${data.post_text.replace(/(\r\n)|(\n)/g, "<br>")}</p>
+                <p>${data.post_text + videos}</p>
                 <div class="buttons">
                     <input type="button" onclick="openEditingForm(${data.id});" value="Szerkeztés">
                     <input type="button" onclick="openDeletingForm(${data.id});" value="Törlés">

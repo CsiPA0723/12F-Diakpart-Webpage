@@ -35,6 +35,8 @@ app.use(function (req, res, next) {
     next(createError(404));
 });
 
+app.options("*", function(req,res,next){res.send(200);});
+
 // error handler
 app.use(function (err, req, res, next) {
     if(config.mode == "dev") {
