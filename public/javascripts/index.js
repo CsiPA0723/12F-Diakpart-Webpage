@@ -123,7 +123,8 @@ function LoadPost(id) {
         data.post_text = data.post_text.replace(/(\r\n)|(\n)/g, "<br>");
         data.post_text = data.post_text.replace(facebookRegExp, (match, p1, p2, offset, string) => {
             link = `<a href="${match}">${match}</a>`;
-            var iframe = `<br><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F${p1}%2Fvideos%2F${p2}%2F&show_text=0" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>`;
+
+            var iframe = `<br><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F${p1}%2Fvideos%2F${p2}%2F&show_text=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>`;
             videos += iframe;
             return link;
         });
